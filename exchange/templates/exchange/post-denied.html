@@ -1,0 +1,20 @@
+{% extends 'exchange/base.html' %}
+{% block content %}
+{% load static %}
+<style>
+  .main-img {
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>You can only post one ticket per day.</h2>
+        <br>
+        <IMG SRC="{% static "no.gif" %}" class="center main-img">
+      </div>
+    </div>
+{% endblock %}

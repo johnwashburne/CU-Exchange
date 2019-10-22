@@ -1,0 +1,24 @@
+{% extends 'exchange/base.html' %}
+{% block content %}
+{% load static %}
+  <!--Body of page-->
+  <style>
+    .main-img {
+      width: 80%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Clemson Ticket Exchange</h1>
+        <br>
+        <p>Buy and sell Clemson Football tickets quickly and easily. All tickets are sold on a first-come first-serve basis. Post the tickets you would like to sell at your price and let everyone else do the rest.</p>
+        <br>
+        <img src="{% static "hill-image.jpg" %}" class="center-block main-img">
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'exchange/base.html' %}
+{% block content %}
+{% load static %}
+<style>
+  .main-img {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Your ticket has now been posted for sale. Go Tigers!</h2>
+        <br>
+        <IMG SRC="{% static "clemsongif.gif" %}" class="center main-img">
+      </div>
+    </div>
+{% endblock %}

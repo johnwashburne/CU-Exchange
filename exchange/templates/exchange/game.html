@@ -1,0 +1,72 @@
+{% extends 'exchange/base.html' %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <head>
+          <style>
+          table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+          }
+
+          td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+          }
+
+          tr:nth-child(even) {
+            background-color: #dddddd;
+          }
+          </style>
+          </head>
+          <body>
+
+          <h2>Clemson vs {{game.opponent}}</h2>
+
+          <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for ticket type..." title="Type in a name">
+
+          <table id="myTable">
+            <tr class="header">
+              <th style="width:30%;">Price</th>
+              <th style="width:35%;">Ticket Type</th>
+              <th style="width:35%;">Seller</th>
+            </tr>
+            {% for ticket in game.ticketoffering_set.all %}
+            <tr>
+              <td>${{ticket.price}}</td>
+              <td>{{ticket.location}}</td>
+              <td><a href="mailto:{{ticket.username}}@clemson.edu?subject={{ticket.game}}%20Ticket&body=Hi%20,%20I%20am%20interested%20in%20your%20{{ticket.game}}%20Ticket.">{{ticket.username}} {{ticket.user.username}}</a></td>
+            </tr>
+            {% endfor %}
+
+
+          <script>
+          function myFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[1];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }
+            }
+          }
+          </script>
+
+
+          </body>
+      </div>
+    </div>
+  </div>
+{% endblock %}

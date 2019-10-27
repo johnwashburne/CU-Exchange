@@ -21,6 +21,7 @@ class SellForm(forms.Form):
 
     location = forms.CharField(max_length=6, widget=forms.Select(choices=LOCATION_CHOICES))
     price = forms.DecimalField(max_digits=6, decimal_places=2, validators=[MinValueValidator(Decimal('5.00'))])
+    checkbox = forms.BooleanField(required=True, label='I acknowledge that I understand that Clemson policy dictates that lottery or gameday pickup tickets may not be bought or sold, and affirm that I am in compliance with these rules.')
     
     
 class UserCreateForm(UserCreationForm):
